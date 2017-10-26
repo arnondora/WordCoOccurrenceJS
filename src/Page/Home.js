@@ -29,7 +29,7 @@ export default class Home extends Component
   {
     super(props)
     this.state = {
-      isAuth : false
+      accessToken : null
     };
 
     this.handleLogin = this.handleLogin.bind(this)
@@ -37,8 +37,11 @@ export default class Home extends Component
 
   render()
   {
-    if (this.state.isAuth)
-      return <Redirect to="/makegraph"/>
+    if (this.state.accessToken != null)
+      return <Redirect to={{
+        pathname: "/makegraph",
+        state: {accessToken: this.state.accessToken}
+      }}/>
 
     return <Container>
       <h1>Thai Word Co-Occurrence Visualiser</h1>
@@ -62,7 +65,7 @@ export default class Home extends Component
     provider.addScope('user_posts');
     firebase.auth().signInWithPopup(provider).then(function(result){
       console.log(result)
-      this.setState({isAuth: true})
+      this.setState({accessToken: result.credential.accessToken})
     }.bind(this));
   }
 
