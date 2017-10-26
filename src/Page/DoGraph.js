@@ -5,6 +5,6 @@ export default class DoGraph extends Component
 {
   render()
   {
-    return <h2>Hello<h2>
+    return <h2>This is Graph Page</h2>
   }
 }

@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 
 import Home from './Page/Home'
+import DoGraph from './Page/DoGraph'
 import NotFoundPage from './Page/NotFoundPage'
 
 //Init Firebase
@@ -34,6 +35,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path = "/" component = {Home}/>
+            <Route exact path = "/makegraph" component = {DoGraph}/>
 
             {/* 404 Page */}
             <Route component={NotFoundPage}/>
