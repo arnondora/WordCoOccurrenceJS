@@ -12,10 +12,6 @@ const Container = styled.button`
 
 export default class FacebookButton extends Component
 {
-  constructor (props)
-  {
-    super(props)
-  }
 
   render ()
   {
