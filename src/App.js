@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import fire from './fire.js';
+import firebase from 'firebase'
 import {
   BrowserRouter as Router,
   Route,
@@ -9,6 +9,17 @@ import {
 
 import Home from './Page/Home'
 import NotFoundPage from './Page/NotFoundPage'
+
+//Init Firebase
+var config = { /* COPY THE ACTUAL CONFIG FROM FIREBASE CONSOLE */
+  apiKey: "AIzaSyDtB_8ZQ2xAkJSu96vc8zfnKOYdeEDODLk",
+  authDomain: "wordcooccurrenceexample.firebaseapp.com",
+  databaseURL: "https://wordcooccurrenceexample.firebaseio.com",
+  projectId: "wordcooccurrenceexample",
+  storageBucket: "wordcooccurrenceexample.appspot.com",
+  messagingSenderId: "669259821747"
+};
+firebase.initializeApp(config);
 
 const Container = styled.div `
   margin: auto;
