@@ -29,8 +29,10 @@ export default class Home extends Component
   {
     super(props)
     this.state = {
-      AuthData : null
+      isAuth : false
     };
+
+    this.handleLogin = this.handleLogin.bind(this)
   }
 
   render()
@@ -47,7 +49,7 @@ export default class Home extends Component
       <Small>PS. This webpage doesn't store any information</Small>
 
       <h2>To getting Started, Please Login to your Facebook by using button below.</h2>
-      <FacebookButton login={this.handleLogin.bind(this)}/>
+      <FacebookButton login={this.handleLogin}/>
     </Container>
   }
 
@@ -59,8 +61,9 @@ export default class Home extends Component
     provider.addScope('public_profile');
     provider.addScope('user_posts');
     firebase.auth().signInWithPopup(provider).then(function(result){
-      this.setState({AuthData: result})
-    });
+      console.log(result)
+      this.setState({isAuth: true})
+    }.bind(this));
   }
 
 }
